@@ -9,7 +9,7 @@ namespace Salvo.Models
     {
         public static void Initialize(SalvoContext context)
         {
-            if(!context.Players.Any())
+            if (!context.Players.Any())
             {
                 var players = new Player[]
                 {
@@ -39,9 +39,30 @@ namespace Salvo.Models
                     },
                 };
 
+
                 foreach (Player p in players)
                 {
                     context.Players.Add(p);
+                }
+                context.SaveChanges();
+            }
+
+            if (!context.Games.Any())
+            {
+                var games = new Game[]
+                {
+                    new Game { CreationDate = DateTime.Now },
+                    new Game { CreationDate = DateTime.Now.AddHours(1) },
+                    new Game { CreationDate = DateTime.Now.AddHours(2) },
+                    new Game { CreationDate = DateTime.Now.AddHours(3) },
+                    new Game { CreationDate = DateTime.Now.AddHours(4) },
+                    new Game { CreationDate = DateTime.Now.AddHours(5) },
+                    new Game { CreationDate = DateTime.Now.AddHours(6) },
+                    new Game { CreationDate = DateTime.Now.AddHours(7) }
+                };
+                foreach (Game g in games)
+                {
+                    context.Games.Add(g);
                 }
                 context.SaveChanges();
             }
