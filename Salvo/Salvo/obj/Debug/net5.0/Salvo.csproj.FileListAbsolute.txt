@@ -115,7 +115,6 @@ D:\Programas\GitHub\C#\bootcamp-.NET-Core\Salvo\Salvo\bin\Debug\net5.0\runtimes\
 D:\Programas\GitHub\C#\bootcamp-.NET-Core\Salvo\Salvo\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\Programas\GitHub\C#\bootcamp-.NET-Core\Salvo\Salvo\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Programas\GitHub\C#\bootcamp-.NET-Core\Salvo\Salvo\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Programas\GitHub\C#\bootcamp-.NET-Core\Salvo\Salvo\obj\Debug\net5.0\Salvo.csproj.AssemblyReference.cache
 D:\Programas\GitHub\C#\bootcamp-.NET-Core\Salvo\Salvo\obj\Debug\net5.0\Salvo.GeneratedMSBuildEditorConfig.editorconfig
 D:\Programas\GitHub\C#\bootcamp-.NET-Core\Salvo\Salvo\obj\Debug\net5.0\Salvo.AssemblyInfoInputs.cache
 D:\Programas\GitHub\C#\bootcamp-.NET-Core\Salvo\Salvo\obj\Debug\net5.0\Salvo.AssemblyInfo.cs
