@@ -108,6 +108,389 @@ namespace Salvo.Models
                 context.SaveChanges();
 
             }
+
+            if (!context.Ships.Any())
+            {
+                GamePlayer gamePlayer1 = context.GamePlayers.Find(1L);
+                GamePlayer gamePlayer2 = context.GamePlayers.Find(2L);
+                GamePlayer gamePlayer3 = context.GamePlayers.Find(3L);
+                GamePlayer gamePlayer4 = context.GamePlayers.Find(4L);
+                GamePlayer gamePlayer5 = context.GamePlayers.Find(5L);
+                GamePlayer gamePlayer6 = context.GamePlayers.Find(6L);
+                GamePlayer gamePlayer7 = context.GamePlayers.Find(7L);
+                GamePlayer gamePlayer8 = context.GamePlayers.Find(8L);
+                GamePlayer gamePlayer9 = context.GamePlayers.Find(9L);
+                GamePlayer gamePlayer10 = context.GamePlayers.Find(10L);
+                GamePlayer gamePlayer11 = context.GamePlayers.Find(11L);
+                GamePlayer gamePlayer12 = context.GamePlayers.Find(12L);
+                GamePlayer gamePlayer13 = context.GamePlayers.Find(13L);
+
+                var ships = new Ship[]
+                {
+                    //esta es solo la primera linea de los datos del pdf
+                    new Ship
+                    {
+                        Type = "Destroyer",
+                        GamePlayer = gamePlayer1,
+                        Locations = new ShipLocation[]
+                        {
+                            new ShipLocation{Location = "H2"},
+                            new ShipLocation{Location = "H3"},
+                            new ShipLocation{Location = "H4"}
+                        }
+                    },
+                    new Ship{Type = "Submarine", GamePlayer = gamePlayer1, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "E1" },
+                            new ShipLocation { Location = "F1" },
+                            new ShipLocation { Location = "G1" }
+                        }
+                    },
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer1, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "B4" },
+                            new ShipLocation { Location = "B5" }
+                        }
+                    },
+
+                    //obrian gp2
+                    new Ship{Type = "Destroyer", GamePlayer = gamePlayer2, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "B5" },
+                            new ShipLocation { Location = "C5" },
+                            new ShipLocation { Location = "D5" }
+                        }
+                    },
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer2, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "F1" },
+                            new ShipLocation { Location = "F2" }
+                        }
+                    },
+
+                    //jbauer gp3
+                    new Ship{Type = "Destroyer", GamePlayer = gamePlayer3, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "B5" },
+                            new ShipLocation { Location = "C5" },
+                            new ShipLocation { Location = "D5" }
+                        }
+                    },
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer3, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "C6" },
+                            new ShipLocation { Location = "C7" }
+                        }
+                    },
+
+                    //obrian gp4
+                    new Ship{Type = "Submarine", GamePlayer = gamePlayer4, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "A2" },
+                            new ShipLocation { Location = "A3" },
+                            new ShipLocation { Location = "A4" }
+                        }
+                    },
+
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer4, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "G6" },
+                            new ShipLocation { Location = "H6" }
+                        }
+                    },
+
+                    //obrian gp5
+                    new Ship{Type = "Destroyer", GamePlayer = gamePlayer5, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "B5" },
+                            new ShipLocation { Location = "C5" },
+                            new ShipLocation { Location = "D5" }
+                        }
+                    },
+
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer5, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "C6" },
+                            new ShipLocation { Location = "C7" }
+                        }
+                    },
+
+                    //talmeida gp6
+                    new Ship{Type = "Submarine", GamePlayer = gamePlayer6, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "A2" },
+                            new ShipLocation { Location = "A3" },
+                            new ShipLocation { Location = "A4" }
+                        }
+                    },
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer6, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "G6" },
+                            new ShipLocation { Location = "H6" }
+                        }
+                    },
+
+                    //obrian gp7
+                    new Ship{Type = "Destroyer", GamePlayer = gamePlayer7, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "B5" },
+                            new ShipLocation { Location = "C5" },
+                            new ShipLocation { Location = "D5" }
+                        }
+                    },
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer7, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "C6" },
+                            new ShipLocation { Location = "C7" }
+                        }
+                    },
+
+                    //jbauer gp8
+                    new Ship{Type = "Submarine", GamePlayer = gamePlayer8, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "A2" },
+                            new ShipLocation { Location = "A3" },
+                            new ShipLocation { Location = "A4" }
+                        }
+                    },
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer8, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "G6" },
+                            new ShipLocation { Location = "H6" }
+                        }
+                    },
+
+                    //talmeida gp9
+                    new Ship{Type = "Destroyer", GamePlayer = gamePlayer9, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "B5" },
+                            new ShipLocation { Location = "C5" },
+                            new ShipLocation { Location = "D5" }
+                        }
+                    },
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer9, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "C6" },
+                            new ShipLocation { Location = "C7" }
+                        }
+                    },
+
+                    //jbauer gp10
+                    new Ship{Type = "Submarine", GamePlayer = gamePlayer10, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "A2" },
+                            new ShipLocation { Location = "A3" },
+                            new ShipLocation { Location = "A4" }
+                        }
+                    },
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer10, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "G6" },
+                            new ShipLocation { Location = "H6" }
+                        }
+                    },
+
+                    //kbauer gp11
+                    new Ship{Type = "Destroyer", GamePlayer = gamePlayer11, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "B5" },
+                            new ShipLocation { Location = "C5" },
+                            new ShipLocation { Location = "D5" }
+                        }
+                    },
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer11, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "C6" },
+                            new ShipLocation { Location = "C7" }
+                        }
+                    },
+
+                    //kbauer gp12
+                    new Ship{Type = "Destroyer", GamePlayer = gamePlayer12, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "B5" },
+                            new ShipLocation { Location = "C5" },
+                            new ShipLocation { Location = "D5" }
+                        }
+                    },
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer12, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "C6" },
+                            new ShipLocation { Location = "C7" }
+                        }
+                    },
+
+                    //talmeida gp13
+                    new Ship{Type = "Submarine", GamePlayer = gamePlayer13, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "A2" },
+                            new ShipLocation { Location = "A3" },
+                            new ShipLocation { Location = "A4" }
+                        }
+                    },
+                    new Ship{Type = "PatroalBoat", GamePlayer = gamePlayer13, Locations = new ShipLocation[] {
+                            new ShipLocation { Location = "G6" },
+                            new ShipLocation { Location = "H6" }
+                        }
+                    },
+
+                };
+
+                foreach (Ship ship in ships)
+                {
+                    context.Ships.Add(ship);
+                }
+
+                context.SaveChanges();
+
+            }
+
+            if (!context.Salvos.Any())
+            {
+                GamePlayer gamePlayer1 = context.GamePlayers.Find(1L);
+                GamePlayer gamePlayer2 = context.GamePlayers.Find(2L);
+                GamePlayer gamePlayer3 = context.GamePlayers.Find(3L);
+                GamePlayer gamePlayer4 = context.GamePlayers.Find(4L);
+                GamePlayer gamePlayer5 = context.GamePlayers.Find(5L);
+                GamePlayer gamePlayer6 = context.GamePlayers.Find(6L);
+                GamePlayer gamePlayer7 = context.GamePlayers.Find(7L);
+                GamePlayer gamePlayer8 = context.GamePlayers.Find(8L);
+                GamePlayer gamePlayer9 = context.GamePlayers.Find(9L);
+                GamePlayer gamePlayer10 = context.GamePlayers.Find(10L);
+
+
+                var salvos = new Salvo[]
+                {
+                    //gp 1
+                    new Salvo
+                    {
+                        Turn = 1, GamePlayer = gamePlayer1,
+                        Locations = new SalvoLocation[]
+                        {
+                            new SalvoLocation{ Location = "B5"},
+                            new SalvoLocation{ Location = "C5"},
+                            new SalvoLocation { Location = "F1"}
+                        }
+                    },
+                    new Salvo{Turn = 2, GamePlayer = gamePlayer1, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "F2" },
+                            new SalvoLocation { Location = "D5" }
+                        }
+                    },
+
+                    //cobrian gp2
+                    new Salvo{Turn = 1, GamePlayer = gamePlayer2, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "B4" },
+                            new SalvoLocation { Location = "B5" },
+                            new SalvoLocation { Location = "B6" }
+                        }
+                    },
+                    new Salvo{Turn = 2, GamePlayer = gamePlayer2, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "E1" },
+                            new SalvoLocation { Location = "H3" },
+                            new SalvoLocation { Location = "A2" }
+                        }
+                    },
+
+                    //jbauer gp3
+                    new Salvo{Turn = 1, GamePlayer = gamePlayer3, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "A2" },
+                            new SalvoLocation { Location = "A4" },
+                            new SalvoLocation { Location = "G6" }
+                        }
+                    },
+                    new Salvo{Turn = 2, GamePlayer = gamePlayer3, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "A3" },
+                            new SalvoLocation { Location = "H6" }
+                        }
+                    },
+
+                    //obrian gp4
+                    new Salvo{Turn = 1, GamePlayer = gamePlayer4, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "B5" },
+                            new SalvoLocation { Location = "D5" },
+                            new SalvoLocation { Location = "C7" }
+                        }
+                    },
+                    new Salvo{Turn = 2, GamePlayer = gamePlayer4, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "C5" },
+                            new SalvoLocation { Location = "C6" }
+                        }
+                    },
+
+                    //obrian gp5
+                    new Salvo{Turn = 1, GamePlayer = gamePlayer5, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "G6" },
+                            new SalvoLocation { Location = "H6" },
+                            new SalvoLocation { Location = "A4" }
+                        }
+                    },
+                    new Salvo{Turn = 2, GamePlayer = gamePlayer5, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "A2" },
+                            new SalvoLocation { Location = "A3" },
+                            new SalvoLocation { Location = "D8" }
+                        }
+                    },
+
+                    //talmeida gp6
+                    new Salvo{Turn = 1, GamePlayer = gamePlayer6, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "H1" },
+                            new SalvoLocation { Location = "H2" },
+                            new SalvoLocation { Location = "H3" }
+                        }
+                    },
+                    new Salvo{Turn = 2, GamePlayer = gamePlayer6, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "E1" },
+                            new SalvoLocation { Location = "F2" },
+                            new SalvoLocation { Location = "G3" }
+                        }
+                    },
+
+                    //obrian gp7
+                    new Salvo{Turn = 1, GamePlayer = gamePlayer7, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "A3" },
+                            new SalvoLocation { Location = "A4" },
+                            new SalvoLocation { Location = "F7" }
+                        }
+                    },
+                    new Salvo{Turn = 2, GamePlayer = gamePlayer7, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "A2" },
+                            new SalvoLocation { Location = "G6" },
+                            new SalvoLocation { Location = "H6" }
+                        }
+                    },
+
+                    //jbauer gp8
+                    new Salvo{Turn = 1, GamePlayer = gamePlayer8, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "B5" },
+                            new SalvoLocation { Location = "C6" },
+                            new SalvoLocation { Location = "H1" }
+                        }
+                    },
+                    new Salvo{Turn = 2, GamePlayer = gamePlayer8, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "C5" },
+                            new SalvoLocation { Location = "C7" },
+                            new SalvoLocation { Location = "D5" }
+                        }
+                    },
+
+                    //talmeida gp9
+                    new Salvo{Turn = 1, GamePlayer = gamePlayer9, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "A1" },
+                            new SalvoLocation { Location = "A2" },
+                            new SalvoLocation { Location = "A3" }
+                        }
+                    },
+                    new Salvo{Turn = 2, GamePlayer = gamePlayer9, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "G6" },
+                            new SalvoLocation { Location = "G7" },
+                            new SalvoLocation { Location = "G8" }
+                        }
+                    },
+
+                    //jbauer gp10
+                    new Salvo{Turn = 1, GamePlayer = gamePlayer10, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "B5" },
+                            new SalvoLocation { Location = "B6" },
+                            new SalvoLocation { Location = "C7" }
+                        }
+                    },
+                    new Salvo{Turn = 2, GamePlayer = gamePlayer10, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "C6" },
+                            new SalvoLocation { Location = "D6" },
+                            new SalvoLocation { Location = "E6" }
+                        }
+                    },
+                    new Salvo{Turn = 3, GamePlayer = gamePlayer10, Locations = new SalvoLocation[] {
+                            new SalvoLocation { Location = "H1" },
+                            new SalvoLocation { Location = "H8" }
+                        }
+                    },
+
+                };
+
+                foreach (Salvo salvo in salvos)
+                {
+                    context.Salvos.Add(salvo);
+                }
+
+                context.SaveChanges();
+            }
         }
     }
 }
