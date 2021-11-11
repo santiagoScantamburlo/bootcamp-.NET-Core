@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Salvo.Models;
 
 namespace Salvo.Migrations
 {
     [DbContext(typeof(SalvoContext))]
-    partial class SalvoContextModelSnapshot : ModelSnapshot
+    [Migration("20211111010552_addShipEntity")]
+    partial class addShipEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,46 +82,6 @@ namespace Salvo.Migrations
                     b.ToTable("Players");
                 });
 
-            modelBuilder.Entity("Salvo.Models.Salvo", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("GamePlayerId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("Turn")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GamePlayerId");
-
-                    b.ToTable("Salvos");
-                });
-
-            modelBuilder.Entity("Salvo.Models.SalvoLocation", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("SalvoId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SalvoId");
-
-                    b.ToTable("SalvoLocations");
-                });
-
             modelBuilder.Entity("Salvo.Models.Ship", b =>
                 {
                     b.Property<long>("Id")
@@ -179,28 +141,6 @@ namespace Salvo.Migrations
                     b.Navigation("Player");
                 });
 
-            modelBuilder.Entity("Salvo.Models.Salvo", b =>
-                {
-                    b.HasOne("Salvo.Models.GamePlayer", "GamePlayer")
-                        .WithMany("Salvos")
-                        .HasForeignKey("GamePlayerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("GamePlayer");
-                });
-
-            modelBuilder.Entity("Salvo.Models.SalvoLocation", b =>
-                {
-                    b.HasOne("Salvo.Models.Salvo", "Salvo")
-                        .WithMany("Locations")
-                        .HasForeignKey("SalvoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Salvo");
-                });
-
             modelBuilder.Entity("Salvo.Models.Ship", b =>
                 {
                     b.HasOne("Salvo.Models.GamePlayer", "GamePlayer")
@@ -230,19 +170,12 @@ namespace Salvo.Migrations
 
             modelBuilder.Entity("Salvo.Models.GamePlayer", b =>
                 {
-                    b.Navigation("Salvos");
-
                     b.Navigation("Ships");
                 });
 
             modelBuilder.Entity("Salvo.Models.Player", b =>
                 {
                     b.Navigation("GamePlayers");
-                });
-
-            modelBuilder.Entity("Salvo.Models.Salvo", b =>
-                {
-                    b.Navigation("Locations");
                 });
 
             modelBuilder.Entity("Salvo.Models.Ship", b =>
