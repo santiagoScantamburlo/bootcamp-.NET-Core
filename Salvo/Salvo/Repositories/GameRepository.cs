@@ -10,6 +10,15 @@ namespace Salvo.Repositories
     public class GameRepository : RepositoryBase<Game>, IGameRepository
     {
         public GameRepository(SalvoContext repositoryContext) : base(repositoryContext) { }
+
+        public Game FindById(long id)
+        {
+            return FindByCondition(game => game.Id == id)
+                    .Include(game => game.GamePlayers)
+                        .ThenInclude(gamePlayer => gamePlayer.Player)
+                    .FirstOrDefault();
+        }
+
         public IEnumerable<Game> GetAllGames()
         {
             return FindAll()
