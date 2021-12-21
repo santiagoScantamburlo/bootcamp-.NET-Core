@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,11 +29,29 @@ namespace Salvo
         {
             services.AddRazorPages();
             //Inyeccion de dependencias para Models/SalvoContext.cs
-            services.AddDbContext<SalvoContext>(opt=>opt.UseSqlServer(Configuration.GetConnectionString("SalvoDataBase")));
+            services.AddDbContext<SalvoContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SalvoDatabase"),
+                o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
             //Inyección de repositorio de Game
             services.AddScoped<IGameRepository, GameRepository>();
             //Inyección de repositorio de GamePlayer
             services.AddScoped<IGamePlayerRepository, GamePlayerRepository>();
+            //Inyección de repositorio de Player
+            services.AddScoped<IPlayerRepository, PlayerRepository>();
+            services.AddScoped<IScoreRepository, ScoreRepository>();
+
+            //Autenticación
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+                    options.LoginPath = new PathString("/index.html");
+                });
+            //Autorización
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("PlayerOnly", policy => policy.RequireClaim("Player"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +70,9 @@ namespace Salvo
 
             app.UseRouting();
 
+            //Definimos el uso de autenticación
+            app.UseAuthentication();
+            //Definimos el uso de autorización
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

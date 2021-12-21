@@ -16,6 +16,7 @@ namespace Salvo.Repositories
         {
             this.RepositoryContext = repositoryContext;
         }
+
         public void Create(T entity)
         {
             this.RepositoryContext.Set<T>().Add(entity);
@@ -33,7 +34,7 @@ namespace Salvo.Repositories
 
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
         {
-            return this.RepositoryContext.Set<T>().Where(expression).AsNoTracking();
+            return this.RepositoryContext.Set<T>().Where(expression).AsNoTrackingWithIdentityResolution();
         }
 
         public void Update(T entity)
@@ -49,6 +50,11 @@ namespace Salvo.Repositories
                 queryable = includes(queryable);
             }
             return queryable.AsNoTrackingWithIdentityResolution();
+        }
+
+        public void SaveChanges()
+        {
+            this.RepositoryContext.SaveChanges();
         }
     }
 }
